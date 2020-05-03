@@ -6,8 +6,7 @@ jobs:
             - image: circleci/node:8
         steps:
             - checkout
-            - run: npm install -g yarn
-            - run: npm install -g pm2
+            - run: echo "test"
     # EC2 に SSH 接続・デプロイを実行
     deploy:
         docker:
