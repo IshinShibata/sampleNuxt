@@ -1,32 +1,25 @@
 version: 2
+ 
 jobs:
     build:
         docker:
             - image: circleci/node:8
         steps:
             - checkout
-            - run: echo "test"
+            - run:
+                name: Echo Test
+                command: echo "CircleCI Test"
     # EC2 に SSH 接続・デプロイを実行
     deploy:
-        docker:
+        machine:
             image: circleci/node:8
         steps:
             - checkout
             # CircleCI に登録した秘密鍵を呼び出す
             - add_ssh_keys:
             # CircleCI に登録した環境変数を使って SSH
-            - run:
-                command: ssh ${USER_NAME}@${HOST_NAME} 'cd /home/ec2-user/sampleNuxt && git pull'
-            - run:
-                command: pm2 kill
-            - run:
-                command: yarn install
-            - run:
-                command: yarn build
-            - run:
-                command: pm2 start npm --name sampleNuxt -- start
-            - run:
-                command: sudo service nginx restart
+            - run: ssh ${USER_NAME}@${HOST_NAME} 'cd /home/ec2-user/sampleNuxt && git pull'
+            - run: pm2 kill && yarn install && yarn build && pm2 start npm --name sampleNuxt -- start && sudo service nginx restart
 workflows:
     version: 2
     build_and_deploy:
