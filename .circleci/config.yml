@@ -1,13 +1,11 @@
 version: 2
- 
 jobs:
     build:
         docker:
             - image: circleci/node:8
         steps:
             - checkout
-            - run:
-                command: echo "test"
+            - run: echo "test"
     # EC2 に SSH 接続・デプロイを実行
     deploy:
         docker:
