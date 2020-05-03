@@ -19,7 +19,7 @@ jobs:
             - add_ssh_keys:
             # CircleCI に登録した環境変数を使って SSH
             - run: ssh ${USER_NAME}@${HOST_NAME} 'cd /home/ec2-user/sampleNuxt && git pull'
- 
+            - run: pm2 kill && yarn install && yarn build && pm2 start npm --name sampleNuxt -- start && sudo service nginx restart
 workflows:
     version: 2
     build_and_deploy:

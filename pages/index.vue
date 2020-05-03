@@ -6,7 +6,7 @@
         sampleNuxt
       </h1>
       <h2 class="subtitle">
-        My laudable Nuxt.js project
+        My laudable なくすと project
       </h2>
       <div class="links">
         <a
