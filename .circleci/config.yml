@@ -3,7 +3,7 @@ version: 2
 jobs:
     build:
         docker:
-            - image: circleci/node
+            - image: circleci/node:10.13.0
         steps:
             - checkout
             - run:
@@ -12,7 +12,7 @@ jobs:
     # EC2 に SSH 接続・デプロイを実行
     deploy:
         machine:
-            image: circleci/node
+            image: circleci/node:10.13.0
         steps:
             - checkout
             # CircleCI に登録した秘密鍵を呼び出す
