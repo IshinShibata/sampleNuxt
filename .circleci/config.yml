@@ -19,20 +19,20 @@ jobs:
             # CircleCI に登録した環境変数を使って SSH
             - run: ssh ${USER_NAME}@${HOST_NAME} 'cd /home/ec2-user/sampleNuxt && git pull'
             - run:
-              name: pm2
-              command: pm2 kill
+                name: pm2
+                command: pm2 kill
             - run:
-              name: yarn
-              command: yarn install
+                name: yarn
+                command: yarn install
             - run:
-              name: yarn buil
-              command: yarn build
+                name: yarn buil
+                command: yarn build
             - run:
-              name: pm2 start
-              command: pm2 start npm --name sampleNuxt -- start
+                name: pm2 start
+                command: pm2 start npm --name sampleNuxt -- start
             - run:
-              name: nginx
-              command: sudo service nginx restart
+                name: nginx
+                command: sudo service nginx restart
 workflows:
     version: 2
     build_and_deploy:
