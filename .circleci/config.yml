@@ -11,7 +11,7 @@ jobs:
     # EC2 に SSH 接続・デプロイを実行
     deploy:
         machine:
-            image: circleci/node:11.1
+            - image: circleci/node:11.1
         steps:
             - checkout
             # CircleCI に登録した秘密鍵を呼び出す
