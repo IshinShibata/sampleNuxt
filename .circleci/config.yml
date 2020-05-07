@@ -18,6 +18,9 @@ jobs:
             - add_ssh_keys:
             # CircleCI に登録した環境変数を使って SSH
             - run: ssh ${USER_NAME}@${HOST_NAME} 'cd /home/ec2-user/sampleNuxt && git pull'
+              fingerprints:
+                - 'SHA256:9ZoTO4Q5ElsRTLZSWIzxHx6fu/HpV9BhtN0rDPLcrUg'
+            - run: ssh-keyscan 13.112.173.237 >> ~/.ssh/known_hosts
             - checkout
             - run:
                 name: pm2
