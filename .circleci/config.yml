@@ -18,6 +18,7 @@ jobs:
             - add_ssh_keys:
             # CircleCI に登録した環境変数を使って SSH
             - run: ssh ${USER_NAME}@${HOST_NAME} 'cd /home/ec2-user/sampleNuxt && git pull'
+            - checkout
             - run:
                 name: pm2
                 command: pm2 kill
