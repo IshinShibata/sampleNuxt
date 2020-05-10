@@ -24,7 +24,7 @@ jobs:
             - checkout
             - run:
                 name: pm2
-                command: npm install -g pm2
+                command: sudo npm install -g pm2
             - run:
                 name: yarn
                 command: yarn install
