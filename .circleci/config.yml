@@ -23,17 +23,11 @@ jobs:
             - run: ssh ${USER_NAME}@${HOST_NAME} 'cd /home/ec2-user/sampleNuxt && git pull'
             - checkout
             - run:
-                name: pm2
-                command: pm2 kill
-            - run:
                 name: yarn
                 command: yarn install
             - run:
                 name: yarn buil
                 command: yarn build
-            - run:
-                name: pm2 start
-                command: pm2 start npm --name sampleNuxt -- start
             - run:
                 name: nginx
                 command: sudo service nginx restart
